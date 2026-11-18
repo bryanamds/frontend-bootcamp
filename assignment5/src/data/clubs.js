@@ -1,8 +1,14 @@
+import computerImg from "./computer.jpg";
+import bookImg from "./book.jpg";
+import mysticImg from "./mystic.jpg";
+import photographyImg from "./photography.jpg";
+import smrtImg from "./smrt.png";
+
 export const clubs = [
 	{
 		name: "Computer Science Club",
 		id: "computer-science",
-		image: "/data/computer.jpg",
+		image: computerImg,
 		shortDescription: "Computer Science Department's Student Led Society",
 		description:
 			"We are a club created by, for, and of the people of Computer Science! This year, we plan to host many interesting events, from games nights to fireside chats. We want to lead more hackathons, create some awesome merch, and perhaps hold monthly builder socials where you can show off your cool projects! Although we're funded by the department, you don't have to be a CS student to join! If you liked computers, you're already a perfect fit!",
@@ -14,7 +20,7 @@ export const clubs = [
 	{
 		name: "Photography Club",
 		id: "photography",
-		image: "/data/photography.jpg",
+		image: photographyImg,
 		shortDescription: "Lookie here... smile... and flash!",
 		description:
 			"The UCL Photography Society comprises a large group of people with diverse interest in photography. We have weekly events ranging from photo walks in different locations in London, and fashion shoots in collaboration with MODO Society, workshops and challenges run by talented UCL photographers and professional guests, gallery visits, and socials. We aim to bring together everyone with an interest in photography to work together on fun projects that will improve your skills. Whether you are a beginner with a phone camera, a professional event photographer, or an abstract photographer, the Photography Society will have something for you!",
@@ -26,7 +32,7 @@ export const clubs = [
 	{
 		name: "SMRT Club",
 		id: "smrt",
-		image: "/data/smrt.jpg",
+		image: smrtImg,
 		shortDescription: "If you love trains, this is YOUR STOP!",
 		description:
 			"We have lots of events planned for the coming year, all focused on urban transport. If you're new to Singapore, we'll help you get your bearings and give you a hand accessing lower fees on our walking tour. If exploring the city in greater depth is more your thing, we've got you covered with socials and visits to the sorts of places your average UCL student might not venture to, from Tuas Link on the East-West Line to Expo on the Downtown Line.",
@@ -38,7 +44,7 @@ export const clubs = [
 	{
 		name: "Book Club",
 		id: "book",
-		image: "/data/book.jpg",
+		image: bookImg,
 		shortDescription: "Connect with other students through the passion for reading!",
 		description:
 			"The UCL Book Club is where those who love reading can gather and discuss books, short stories, poems, and more. We pride ourselves on being an all-inclusive group that welcomes everyone who wishes to discuss their favourite reads or get recommendations from others. You don't have to know much about books to join us; just be ready to speak your mind and to listen to others.",
@@ -50,7 +56,7 @@ export const clubs = [
 	{
 		name: "Mystic Arts Club",
 		id: "mystic-arts",
-		image: "/data/mystic.jpg",
+		image: mysticImg,
 		shortDescription:
 			"Is where the magic happens. Complete beginners to trained archmages are all welcome!",
 		description:

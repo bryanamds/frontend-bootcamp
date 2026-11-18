@@ -9,6 +9,8 @@ export default function Clubs() {
 			<div className="flex flex-row gap-4">
 				{clubs.map((club) => (
 					<Card
+						key={club.id}
+						id={club.id}
 						name={club.name}
 						image={club.image}
 						shortDescription={club.shortDescription}
