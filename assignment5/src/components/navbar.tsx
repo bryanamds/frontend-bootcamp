@@ -41,11 +41,11 @@ export default function Navbar() {
 			</div>
 			<div className="navbar-end">
 				<a
-					className="btn btn-soft"
+					className="btn btn-outline hover:bg-black hover:text-white hover:rounded-sm hover:border hover:border-black"
 					href="https://github.com/bryanamds/frontend-bootcamp/tree/main/assignment5"
 					target="_blank"
 				>
-					Repo
+					Github Repository
 				</a>
 			</div>
 		</div>

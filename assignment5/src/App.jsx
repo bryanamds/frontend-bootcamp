@@ -9,7 +9,7 @@ export default function App() {
 		<BrowserRouter>
 			<main>
 				<Navbar />
-				<div className="mx-10 mt-5">
+				<div className="content">
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/clubs" element={<Clubs />} />
