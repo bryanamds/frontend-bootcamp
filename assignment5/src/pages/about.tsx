@@ -25,8 +25,8 @@ export default function About() {
 			<div className="mx-auto w-full max-w-3xl">
 				<p className="mb-3">
 					This app's primary use is to display student clubs. Students can sort the clubs
-					based on their names and also look at club's details by clicking the "View
-					details" button located on every clubs.
+					based on their names and seek further details of a club by clicking the "View
+					details" button.
 				</p>
 				<p className="mb-3">
 					Additionally, students can also join these clubs by clicking the join button.
