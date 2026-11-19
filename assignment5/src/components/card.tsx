@@ -9,7 +9,7 @@ type CardProps = {
 
 export default function Card({ id, name, image, shortDescription }: CardProps) {
 	return (
-		<div className="card bg-base-100 w-96 shadow-sm">
+		<div className="card bg-base-300 shadow-sm">
 			<figure>
 				<img src={image} alt="club front image" className="w-full h-42 object-cover" />
 			</figure>

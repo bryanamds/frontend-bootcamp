@@ -45,7 +45,7 @@ export default function Navbar() {
 					href="https://github.com/bryanamds/frontend-bootcamp/tree/main/assignment5"
 					target="_blank"
 				>
-					Github Repository
+					Repository
 				</a>
 			</div>
 		</div>

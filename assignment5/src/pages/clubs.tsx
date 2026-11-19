@@ -10,9 +10,9 @@ export default function Clubs() {
 	);
 
 	return (
-		<div>
+		<div className="m-5 sm:m-10">
 			{/* Page title */}
-			<h1 className="text-2xl mb-6">This is clubs page</h1>
+			<h1 className="text-2xl mb-6 text-center uppercase">Student Clubs</h1>
 
 			{/* Sort buttons */}
 			<div className="flex gap-2 mb-4">
@@ -46,7 +46,7 @@ export default function Clubs() {
 			<div
 				className={
 					view === "grid"
-						? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+						? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
 						: "flex flex-col gap-4"
 				}
 			>
