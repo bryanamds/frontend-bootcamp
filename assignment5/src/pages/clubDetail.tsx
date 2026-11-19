@@ -1,10 +1,49 @@
 import { useParams, Link } from "react-router-dom";
 import { clubs } from "../data/clubs";
 import NotFound from "../pages/notfound";
+import { useEffect, useState } from "react";
+
+const STORAGE_KEY = "joinedClubs";
+
+function getJoinedClubs(): string[] {
+	try {
+		const saved = localStorage.getItem(STORAGE_KEY);
+		if (saved) {
+			return JSON.parse(saved);
+		} else {
+			return [];
+		}
+	} catch {
+		return [];
+	}
+}
 
 export default function ClubDetail() {
 	const { id } = useParams();
 	const club = clubs.find((c) => c.id === id);
+
+	const [joined, setJoined] = useState(false);
+	const [showConfirm, setShowConfirm] = useState(false);
+
+	useEffect(() => {
+		if (id) {
+			setJoined(getJoinedClubs().includes(id));
+		}
+	}, [id]);
+
+	function handleJoin() {
+		if (!id) return;
+
+		const joinedClubs = getJoinedClubs();
+
+		if (!joinedClubs.includes(id)) {
+			joinedClubs.push(id);
+			localStorage.setItem(STORAGE_KEY, JSON.stringify(joinedClubs));
+		}
+
+		setJoined(true);
+		setShowConfirm(true);
+	}
 
 	if (!club) {
 		return <NotFound />;
@@ -22,7 +61,22 @@ export default function ClubDetail() {
 				</div>
 				<div>
 					<h1 className="text-3xl my-4">{club.name}</h1>
-					<p>{club.description}</p>
+					<p className="mb-4">{club.description}</p>
+					{joined ? (
+						<button className="btn btn-success" disabled>
+							You have joined this club!
+						</button>
+					) : (
+						<button className="btn btn-primary" onClick={handleJoin}>
+							Join Club
+						</button>
+					)}
+
+					{showConfirm && (
+						<div role="alert" className="alert alert-success mt-4">
+							<span>Successfully joined the {club.name}!</span>
+						</div>
+					)}
 				</div>
 			</section>
 
