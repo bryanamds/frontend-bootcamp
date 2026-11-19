@@ -10,7 +10,7 @@ export default function Clubs() {
 	);
 
 	return (
-		<div className="m-5 sm:m-10">
+		<section className="m-5 sm:m-10">
 			{/* Page title */}
 			<h1 className="text-2xl mb-6 text-center uppercase">Student Clubs</h1>
 
@@ -60,6 +60,6 @@ export default function Clubs() {
 					/>
 				))}
 			</div>
-		</div>
+		</section>
 	);
 }
