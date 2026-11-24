@@ -1,4 +1,5 @@
 import { getProductById } from "@/lib/api";
+import FavouriteButton from "@/components/FavouriteButton";
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
 	const { id } = await params;
@@ -17,6 +18,9 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
 
 				<p className="mt-2">{product.description}</p>
 				<div className="badge badge-neutral badge-soft mt-5">{product.category}</div>
+				<div className="mt-3">
+					<FavouriteButton />
+				</div>
 			</div>
 		</div>
 	);
