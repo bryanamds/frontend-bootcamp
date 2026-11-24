@@ -16,9 +16,9 @@ export default function ProductCard({ id, title, price, image }: ProductCardProp
 			</figure>
 			<div className="card-body">
 				<h2 className="card-title">{title}</h2>
-				<p>{price}</p>
+				<p>${price}</p>
 				<div className="card-actions justify-end">
-					<Link href={`/products/${id}`} className="btn btn-error">
+					<Link href={`/products/${id}`} className="btn btn-error w-full">
 						View details
 					</Link>
 				</div>
