@@ -7,12 +7,12 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
 	const product = await getProductById(id);
 
 	return (
-		<div className="font-sans md:m-10">
+		<div className="font-sans">
 			<BackButton />
 
-			<div className="grid grid-cols-2">
+			<div className="grid md:grid-cols-2">
 				<img src={product.image} alt="Product image" />
-				<div className="">
+				<div>
 					<h1 className="text-2xl">{product.title}</h1>
 					<div className="flex items-center">
 						<p>{product.rating.rate}⭐</p>
@@ -22,7 +22,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
 
 					<p className="mt-2">{product.description}</p>
 					<div className="badge badge-neutral badge-soft mt-5">{product.category}</div>
-					<div className="mt-3">
+					<div className="mt-3 mb-10">
 						<FavouriteButton />
 					</div>
 				</div>
