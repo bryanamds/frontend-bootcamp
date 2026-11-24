@@ -1,11 +1,23 @@
-import Image from "next/image";
+import ProductCard from "@/components/ProductCard";
+import { getProducts } from "@/lib/api";
 
-export default function Home() {
+export default async function Home() {
+	const products = await getProducts();
+
 	return (
 		<div className="font-sans">
-			<h1>Products</h1>
-			{/* This is the homepage! */}
-			{/* It showcases a list of 5 products and each must display img, name, and View Details btn */}
+			<h1 className="text-2xl">Products</h1>
+
+			<div className="">
+				{products.map((product: any) => (
+					<ProductCard
+						key={product.id}
+						title={product.title}
+						price={product.price}
+						image={product.image}
+					/>
+				))}
+			</div>
 		</div>
 	);
 }
