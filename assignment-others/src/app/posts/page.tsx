@@ -95,15 +95,23 @@ export default function PostsPage() {
 
 			{/* POSTS */}
 			<div className="grid grid-cols-3 gap-5">
-				{filteredPosts.map((post) => (
-					<PostCard
-						key={post.id}
-						id={post.id}
-						title={post.title}
-						content={post.content}
-						createdAt={post.createdAt.toDate().toLocaleString("en-GB")}
-					/>
-				))}
+				{filteredPosts.map((post) => {
+					const createdAt = post.createdAt.toDate();
+					const formattedDate = new Intl.DateTimeFormat("en-GB", {
+						day: "numeric",
+						month: "short",
+						year: "numeric",
+					}).format(createdAt);
+					return (
+						<PostCard
+							key={post.id}
+							id={post.id}
+							title={post.title}
+							content={post.content}
+							createdAt={formattedDate}
+						/>
+					);
+				})}
 			</div>
 
 			{filteredPosts.length === 0 && <p>No post matches your search ;-;</p>}

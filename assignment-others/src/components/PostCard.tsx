@@ -17,7 +17,7 @@ export default function PostCard({ id, title, content, createdAt }: PostCardProp
 				<h2 className="card-title">{title}</h2>
 				<p className="line-clamp-3">{content}</p>
 
-				<div className="justify-end card-actions">{createdAt}</div>
+				<div className="justify-end card-actions mt-5">{createdAt}</div>
 			</div>
 		</Link>
 	);
