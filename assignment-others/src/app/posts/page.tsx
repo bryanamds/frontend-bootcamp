@@ -94,7 +94,7 @@ export default function PostsPage() {
 			</label>
 
 			{/* POSTS */}
-			<div className="grid grid-cols-3 gap-5">
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 				{filteredPosts.map((post) => {
 					const createdAt = post.createdAt.toDate();
 					const formattedDate = new Intl.DateTimeFormat("en-GB", {
