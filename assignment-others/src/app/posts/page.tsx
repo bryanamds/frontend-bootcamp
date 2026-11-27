@@ -1,14 +1,14 @@
 "use client";
 import PostCard from "@/components/PostCard";
 import { useEffect, useState } from "react";
-import { collection, getDocs, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import getDatabase from "@/lib/firebase";
 
 interface Post {
 	id: string;
 	title: string;
 	content: string;
-	createdAt: any;
+	createdAt?: any;
 }
 
 export default function PostsPage() {
@@ -37,7 +37,7 @@ export default function PostsPage() {
 	const cleanQuery = searchQuery.trim().toLowerCase();
 	const filteredPosts = posts.filter((post) => post.title.toLowerCase().includes(cleanQuery));
 
-	if (loading) return <p>Loading...</p>;
+	if (loading) return <p>Loading posts...</p>;
 
 	return (
 		<div>
