@@ -1,38 +1,59 @@
 "use client";
 import PostCard from "@/components/PostCard";
 import { useEffect, useState } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot, type Timestamp } from "firebase/firestore";
 import getDatabase from "@/lib/firebase";
 
 interface Post {
 	id: string;
 	title: string;
 	content: string;
-	createdAt?: any;
+	createdAt: Timestamp;
 }
 
 export default function PostsPage() {
 	const [posts, setPosts] = useState<Post[]>([]);
-	const [loading, setLoading] = useState(true);
 	const [searchQuery, setSearchQuery] = useState("");
 
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<Error | null>(null);
+
 	useEffect(() => {
-		const db = getDatabase();
-
-		const unsubscribe = onSnapshot(collection(db, "posts"), (snapshot) => {
-			const list = snapshot.docs.map((doc) => ({
-				id: doc.id,
-				...(doc.data() as Omit<Post, "id">),
-			}));
-
-			setPosts(list);
+		let unsubscribe = () => {};
+		const handleError = (reason: unknown) => {
+			setError(reason instanceof Error ? reason : new Error(String(reason)));
 			setLoading(false);
-		});
+		};
 
-		console.log("useEffect is a go");
+		try {
+			const db = getDatabase();
 
-		return unsubscribe; //cleanup
+			unsubscribe = onSnapshot(
+				collection(db, "posts"),
+				(snapshot) => {
+					try {
+						const list = snapshot.docs.map((doc) => ({
+							id: doc.id,
+							...(doc.data() as Omit<Post, "id">),
+						}));
+
+						setPosts(list);
+						setLoading(false);
+						setError(null);
+					} catch (reason) {
+						handleError(reason);
+					}
+				},
+				handleError,
+			);
+		} catch (reason) {
+			handleError(reason);
+		}
+
+		return unsubscribe;
 	}, []);
+
+	if (error) throw error;
 
 	const cleanQuery = searchQuery.trim().toLowerCase();
 	const filteredPosts = posts.filter((post) => post.title.toLowerCase().includes(cleanQuery));
